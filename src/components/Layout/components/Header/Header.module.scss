@@ -2,3 +2,15 @@
 //     // box-shadow: 0px 1px 1px rgb(0 0 0 /12%);
 // }
 
+.close, .loading{
+    height: 100%;
+    width: 20px;
+    cursor: pointer;
+    color:rgba(22, 24, 35, 0.34) ;
+    position: absolute;
+    right: 70px;
+}
+
+.search-btn{
+    
+}
