@@ -207,9 +207,10 @@ function Header() {
           >
             <AlertDialogOverlay />
             <AlertDialogContent
-              blockSize="550px"
+              blockSize="510px"
               backgroundColor="#FFFFFF"
               userSelect="none"
+              borderRadius="15px"
             >
               <AlertDialogCloseButton />
               <AlertDialogBody>
@@ -298,7 +299,7 @@ function Header() {
                         Login
                       </Text>
                     </Button>
-                    <Flex padding="7px 7px 7px 60px">
+                    <Flex padding="15px 7px 7px 60px">
                       <Text paddingRight="2.5px" fontSize="15px">
                         Dont have an account?
                       </Text>
