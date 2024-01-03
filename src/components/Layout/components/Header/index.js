@@ -143,9 +143,9 @@ function Header() {
           </PopoverTrigger>
 
           <Portal>
-            <PopoverContent width="361px" maxH="330px" overflowY="auto">
-              <PopoverBody>
-                {/* this Flex to contain search Results */}
+            <PopoverContent w="349px" overflow="hidden">
+              <PopoverBody w="361px" maxH="330px" overflowY="auto">
+                {/* this Flex to contain search Results after click search bar */}
                 {searchResult.map((result) => (
                   <Flex
                     key={result.id}
