@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import images from "../../../../assets/images";
@@ -19,6 +19,13 @@ import {
   PopoverBody,
   PopoverTrigger,
   Text,
+  AlertDialog,
+  AlertDialogOverlay,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogCloseButton,
+  AlertDialogBody,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { searchResult } from "../../../../mooks/data.js";
 
@@ -31,6 +38,8 @@ const clientId =
 const cx = classNames.bind(styles);
 
 function Header() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -54,6 +63,9 @@ function Header() {
   const handleBlur = () => {
     setIsInputFocused(false);
   };
+
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
 
   return (
     <Flex
@@ -168,7 +180,7 @@ function Header() {
           </Portal>
         </Popover>
         <Flex>
-          {/* <Button
+          <Button
             backgroundColor="#FE2C55"
             width="100px"
             height="36px"
@@ -180,13 +192,133 @@ function Header() {
             _active={{
               backgroundColor: "#D62848",
             }}
+            onClick={onOpen}
           >
             <Text fontSize="18px" as="b" color="#ffffff">
               Sign In
             </Text>
-          </Button> */}
-          <LoginButton />
-          <LogoutButton />
+          </Button>
+          <AlertDialog
+            motionPreset="slideInBottom"
+            onClose={onClose}
+            isOpen={isOpen}
+            isCentered
+            size="2xl"
+          >
+            <AlertDialogOverlay />
+            <AlertDialogContent
+              blockSize="550px"
+              backgroundColor="#FFFFFF"
+              userSelect="none"
+            >
+              <AlertDialogCloseButton />
+              <AlertDialogBody>
+                <Flex flexDirection="column" width="100%">
+                  <Flex
+                    userSelect="none"
+                    flexDirection="column"
+                    alignItems="center"
+                    rowGap="10px"
+                  >
+                    <Image
+                      position="absolute"
+                      marginLeft="150px"
+                      width="200px"
+                      src={images.logoBook}
+                      alt="TheLib"
+                    />
+                    <Text
+                      fontSize="30px"
+                      as="b"
+                      color="#FE2C55"
+                      paddingTop="50px"
+                    >
+                      Welcome back
+                    </Text>
+                    <Flex alignItems="center" flexDirection="column">
+                      <Text userSelect="none">Glad to see you again</Text>
+                      <Text userSelect="none">Login to your account below</Text>
+                    </Flex>
+
+                    <LoginButton />
+                  </Flex>
+
+                  <Flex flexDirection="column" rowGap="10px" paddingTop="10px">
+                    <Text as="b" fontSize="15px" userSelect="none">
+                      Email
+                    </Text>
+                    <Input
+                      padding="20px 12px"
+                      fontSize="15px"
+                      placeholder="enter email..."
+                      transition="0.4s"
+                      focusBorderColor="pink.400"
+                    />
+                    <Text
+                      typeof="password"
+                      as="b"
+                      fontSize="15px"
+                      userSelect="none"
+                    >
+                      Password
+                    </Text>
+
+                    <InputGroup>
+                      <Input
+                        padding="20px 12px"
+                        fontSize="15px"
+                        placeholder="enter password..."
+                        transition="0.4s"
+                        focusBorderColor="pink.400"
+                        type={show ? "text" : "password"}
+                      />
+                      <InputRightElement h="42px" w="100px">
+                        <Button
+                          left="18px"
+                          padding="0px 11px"
+                          h="30px"
+                          size="sm"
+                          onClick={handleClick}
+                        >
+                          <Text fontSize="13px">{show ? "Hide" : "Show"}</Text>
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                    <Button
+                      height="40px"
+                      backgroundColor="#FE2C55"
+                      _hover={{
+                        backgroundColor: "#EA284E",
+                      }}
+                      _active={{
+                        backgroundColor: "#E0274B",
+                      }}
+                    >
+                      <Text fontSize="20px" color="#fff">
+                        Login
+                      </Text>
+                    </Button>
+                    <Flex padding="7px 7px 7px 60px">
+                      <Text paddingRight="2.5px" fontSize="15px">
+                        Dont have an account?
+                      </Text>
+                      <Text
+                        fontSize="15px"
+                        cursor="pointer"
+                        color="#C40D32"
+                        _hover={{
+                          color: "#FE2C55",
+                        }}
+                      >
+                        Sign up for Free
+                      </Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </AlertDialogBody>
+            </AlertDialogContent>
+          </AlertDialog>
+          {/* <LogoutButton /> */}
         </Flex>
       </Flex>
     </Flex>

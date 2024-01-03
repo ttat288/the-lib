@@ -16,11 +16,15 @@ function Login() {
     <div id="signInButton">
       <GoogleLogin
         clientId={clientId}
-        buttonText="Login"
+        // buttonText="Login"
         onSuccess={onSuccess}
         onFailure={onFailure}
         cookiePolicy={"single_host_origin"}
         isSignedIn={true}
+        style={{
+          width: "1000px",
+          height: "50px",
+        }}
       />
     </div>
   );
