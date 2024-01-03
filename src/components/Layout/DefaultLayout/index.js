@@ -8,9 +8,9 @@ function DefaultLayout({ children }) {
     <Flex justifyContent="center" flexDirection="column" alignItems="center">
       <Header />
       {/* container */}
-      <Flex w="1150px">
+      <Flex w="1150px" paddingTop="50px">
         <Sidebar />
-        <Flex flex="1" minH="1000px">
+        <Flex flex="1" minH="1000px" paddingTop="40px">
           {children}
         </Flex>
       </Flex>

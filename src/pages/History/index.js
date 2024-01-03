@@ -1,13 +1,13 @@
 import { Text } from "@chakra-ui/react";
 
-function Upload() {
+function History() {
   return (
     <>
       <Text as="b" fontSize="3xl">
-        Upload page
+        History page
       </Text>
     </>
   );
 }
 
-export default Upload;
+export default History;

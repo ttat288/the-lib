@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import images from "../../../../assets/images";
@@ -22,21 +22,35 @@ import {
 } from "@chakra-ui/react";
 import { searchResult } from "../../../../mooks/data.js";
 
+import { gapi } from "gapi-script";
+import LoginButton from "../../../../components/services/google/login.js";
+import LogoutButton from "../../../../components/services/google/logout.js";
+const clientId =
+  "325518792405-623nupdf9l0phl5r63rpli0eboekr9hn.apps.googleusercontent.com";
+
 const cx = classNames.bind(styles);
 
 function Header() {
-  const [inputValue, setInputValue] = useState("");
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    }
 
+    gapi.load("client:auth2, start");
+  });
+
+  const [inputValue, setInputValue] = useState("");
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
   const [isInputFocused, setIsInputFocused] = useState(false);
-
   const handleFocus = () => {
     setIsInputFocused(true);
   };
-
   const handleBlur = () => {
     setIsInputFocused(false);
   };
@@ -47,6 +61,9 @@ function Header() {
       height="60px"
       justifyContent="center"
       boxShadow="0px 1px 1px rgb(0 0 0 /12%)"
+      position="fixed"
+      top={0}
+      backgroundColor="#FDFDFD"
     >
       <Flex
         w="1150px"
@@ -151,7 +168,7 @@ function Header() {
           </Portal>
         </Popover>
         <Flex>
-          <Button
+          {/* <Button
             backgroundColor="#FE2C55"
             width="100px"
             height="36px"
@@ -167,7 +184,9 @@ function Header() {
             <Text fontSize="18px" as="b" color="#ffffff">
               Sign In
             </Text>
-          </Button>
+          </Button> */}
+          <LoginButton />
+          <LogoutButton />
         </Flex>
       </Flex>
     </Flex>
