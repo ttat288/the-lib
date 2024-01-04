@@ -28,18 +28,26 @@ import {
   Stack,
   Avatar,
   AvatarBadge,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuGroup,
+  MenuItem,
+  MenuDivider,
 } from "@chakra-ui/react";
 import { searchResult } from "../../../../mooks/data.js";
 
 import { gapi } from "gapi-script";
 import LoginButton from "../../../../components/services/google/login.js";
-// import LogoutButton from "../../../../components/services/google/logout.js";
+import LogoutButton from "../../../../components/services/google/logout.js";
 const clientId =
   "325518792405-623nupdf9l0phl5r63rpli0eboekr9hn.apps.googleusercontent.com";
 
 const cx = classNames.bind(styles);
 
 function Header() {
+  const [isLogin, setIsLogin] = useState(false);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -70,7 +78,12 @@ function Header() {
   const handleClick = () => setShow(!show);
 
   const handleLoginSuccess = () => {
+    setIsLogin(true);
     onClose();
+  };
+
+  const handleLogout = () => {
+    setIsLogin(false);
   };
 
   return (
@@ -192,6 +205,7 @@ function Header() {
             height="36px"
             padding="6px 8px"
             transition="0.4s"
+            display={isLogin ? "none" : "block"}
             _hover={{
               backgroundColor: "#EF2950",
             }}
@@ -204,13 +218,49 @@ function Header() {
               Sign In
             </Text>
           </Button>
-          <Stack direction="row" spacing={4}>
+
+          {/* Start contain avatar after login */}
+          <Stack
+            direction="row"
+            spacing={4}
+            display={isLogin ? "block" : "none"}
+          >
             <Avatar>
               <AvatarBadge boxSize="1.25em" bg="green.500" />
             </Avatar>
           </Stack>
+          {/* End contain avatar after login */}
 
-          {/* Form Login */}
+          {/* Start menu drop down when click on avatar in header */}
+          <Menu>
+            <MenuButton
+              as={Button}
+              colorScheme="pink"
+              position="absolute"
+              borderRadius="50%"
+              w="30px"
+              h="30px"
+              opacity="0"
+              display={isLogin ? "block" : "none"}
+            ></MenuButton>
+            <MenuList
+              w="200px"
+              boxShadow="rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;"
+            >
+              <MenuItem fontWeight="bold">My Account</MenuItem>
+              <MenuItem fontWeight="bold">Payments </MenuItem>
+              <MenuDivider />
+              <MenuItem fontWeight="bold">Docs</MenuItem>
+              <MenuItem fontWeight="bold">FAQ</MenuItem>
+              <MenuDivider />
+              <MenuItem>
+                <LogoutButton onLogoutSuccess={handleLogout} />
+              </MenuItem>
+            </MenuList>
+          </Menu>
+          {/* End menu drop down when click on avatar in header */}
+
+          {/* Start Form Login */}
           <AlertDialog
             motionPreset="slideInBottom"
             onClose={onClose}
@@ -218,7 +268,9 @@ function Header() {
             isCentered
             size="2xl"
           >
+            {/* AlertDialogOverlay: Creates an overlay around the alert dialog , preventing interaction with the outside content */}
             <AlertDialogOverlay />
+
             <AlertDialogContent
               blockSize="510px"
               backgroundColor="#FFFFFF"
@@ -226,6 +278,7 @@ function Header() {
               borderRadius="15px"
             >
               <AlertDialogCloseButton />
+              {/* Start content of alert dialog */}
               <AlertDialogBody>
                 <Flex flexDirection="column" width="100%">
                   <Flex
@@ -330,6 +383,7 @@ function Header() {
                   </Flex>
                 </Flex>
               </AlertDialogBody>
+              {/* End content of alert dialog */}
             </AlertDialogContent>
           </AlertDialog>
           {/* Finish Form Login */}
