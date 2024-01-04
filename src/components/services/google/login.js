@@ -5,13 +5,12 @@ const clientId =
 
 function Login({ onLoginSuccess }) {
   const onSuccess = (res) => {
-    console.log("LOGIN SUCCESS", res.profileObj);
+    // console.log("LOGIN SUCCESS", res.profileObj);
     onLoginSuccess(); // Gọi hàm callback
   };
 
   const onFailure = (res) => {
-    console.log("LOGIN FAIL", res);
-    return "0";
+    // console.log("LOGIN FAIL", res);
   };
 
   return (
