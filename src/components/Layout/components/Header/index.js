@@ -30,7 +30,7 @@ import { searchResult } from "../../../../mooks/data.js";
 
 import { gapi } from "gapi-script";
 import LoginButton from "../../../../components/services/google/login.js";
-import LogoutButton from "../../../../components/services/google/logout.js";
+// import LogoutButton from "../../../../components/services/google/logout.js";
 const clientId =
   "325518792405-623nupdf9l0phl5r63rpli0eboekr9hn.apps.googleusercontent.com";
 
@@ -47,7 +47,7 @@ function Header() {
       });
     }
 
-    gapi.load("client:auth2, start");
+    gapi.load("client:auth2", start);
   });
 
   const [inputValue, setInputValue] = useState("");
