@@ -22,7 +22,6 @@ import {
   AlertDialog,
   AlertDialogOverlay,
   AlertDialogContent,
-  AlertDialogHeader,
   AlertDialogCloseButton,
   AlertDialogBody,
   useDisclosure,
@@ -66,6 +65,10 @@ function Header() {
 
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+
+  const handleLoginSuccess = () => {
+    onClose();
+  };
 
   return (
     <Flex
@@ -198,6 +201,8 @@ function Header() {
               Sign In
             </Text>
           </Button>
+
+          {/* Form Login */}
           <AlertDialog
             motionPreset="slideInBottom"
             onClose={onClose}
@@ -241,7 +246,7 @@ function Header() {
                       <Text userSelect="none">Login to your account below</Text>
                     </Flex>
 
-                    <LoginButton />
+                    <LoginButton onLoginSuccess={handleLoginSuccess} />
                   </Flex>
 
                   <Flex flexDirection="column" rowGap="10px" paddingTop="10px">
@@ -319,6 +324,8 @@ function Header() {
               </AlertDialogBody>
             </AlertDialogContent>
           </AlertDialog>
+          {/* Finish Form Login */}
+
           {/* <LogoutButton /> */}
         </Flex>
       </Flex>

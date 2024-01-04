@@ -17,7 +17,7 @@ import { MdOutlineHistory } from "react-icons/md";
 import { IoBookOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link as ReactRouterLink } from "react-router-dom";
-import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
+import { Link as ChakraLink } from "@chakra-ui/react";
 import { Genres } from "../../../../mooks/data.js";
 
 function Sidebar() {

@@ -751,7 +751,7 @@ export const Genres = [
   },
   {
     id: "46",
-    genreName: "Tragedy",
+    genreName: "Webtoon",
     color: "black",
     description: "hay lắm!",
     bold: false,
@@ -786,13 +786,6 @@ export const Genres = [
   },
   {
     id: "51",
-    genreName: "Webtoon",
-    color: "black",
-    description: "hay lắm!",
-    bold: false,
-  },
-  {
-    id: "52",
     genreName: "Xuyên Không",
     color: "black",
     description: "hay lắm!",
