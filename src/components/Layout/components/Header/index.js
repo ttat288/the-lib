@@ -25,6 +25,9 @@ import {
   AlertDialogCloseButton,
   AlertDialogBody,
   useDisclosure,
+  Stack,
+  Avatar,
+  AvatarBadge,
 } from "@chakra-ui/react";
 import { searchResult } from "../../../../mooks/data.js";
 
@@ -201,6 +204,11 @@ function Header() {
               Sign In
             </Text>
           </Button>
+          <Stack direction="row" spacing={4}>
+            <Avatar>
+              <AvatarBadge boxSize="1.25em" bg="green.500" />
+            </Avatar>
+          </Stack>
 
           {/* Form Login */}
           <AlertDialog
