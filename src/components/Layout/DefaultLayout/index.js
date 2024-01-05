@@ -10,7 +10,7 @@ function DefaultLayout({ children }) {
       {/* container */}
       <Flex w="1150px" paddingTop="50px">
         <Sidebar />
-        <Flex flex="1" minH="1000px" paddingTop="40px">
+        <Flex flex="1" paddingTop="40px">
           {children}
         </Flex>
       </Flex>
