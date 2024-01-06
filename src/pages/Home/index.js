@@ -30,14 +30,16 @@ function Home() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <Flex flexDirection="column">
-      <Posts posts={currentPost} loading={loading} />
+    <Flex justifyContent="center" w="100%">
+      <Flex flexDirection="column" maxWidth="950px">
+        <Posts posts={currentPost} loading={loading} />
 
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        paginate={paginate}
-      />
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={posts.length}
+          paginate={paginate}
+        />
+      </Flex>
     </Flex>
   );
 }

@@ -39,239 +39,247 @@ function Sidebar() {
   // };
 
   return (
-    <Flex
-      width="270px"
-      paddingTop="30px"
-      flexDirection="column"
-      overflowY="auto"
-      maxHeight="1000px"
-    >
-      <ChakraLink
-        as={ReactRouterLink}
-        to="/"
-        fontSize="20px"
-        fontWeight="bold"
-        style={{ textDecoration: "none" }}
-        w="240px"
+    <Flex width="240px">
+      <Flex
+        width="235px"
+        paddingTop="30px"
+        flexDirection="column"
+        overflowY="auto"
+        // maxHeight="100px"
+        position="fixed"
       >
-        <Flex
-          userSelect="none"
-          padding="12px"
-          transition="0.3s"
-          borderRadius="5px"
-          _hover={{
-            cursor: "pointer",
-            backgroundColor: "rgba(22, 24, 35, 0.03)",
-          }}
-          _active={{
-            backgroundColor: "rgba(22, 24, 35, 0.07)",
-          }}
-          color={isTabSelected("Home") ? "rgba(254, 44, 85, 1)" : "black"}
-          onClick={() => handleTabClick("Home")}
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/"
+          fontSize="20px"
+          fontWeight="bold"
+          style={{ textDecoration: "none" }}
         >
-          <AiFillHome
-            style={{
-              height: "29px",
-              width: "29px",
+          <Flex
+            userSelect="none"
+            padding="12px"
+            transition="0.3s"
+            borderRadius="5px"
+            _hover={{
+              cursor: "pointer",
+              backgroundColor: "rgba(22, 24, 35, 0.03)",
             }}
-          />
-          <Text paddingLeft="10px" fontSize="20px" as="b" textDecoration="none">
-            Trang chủ
-          </Text>
-        </Flex>
-      </ChakraLink>
+            _active={{
+              backgroundColor: "rgba(22, 24, 35, 0.07)",
+            }}
+            color={isTabSelected("Home") ? "rgba(254, 44, 85, 1)" : "black"}
+            onClick={() => handleTabClick("Home")}
+          >
+            <AiFillHome
+              style={{
+                height: "29px",
+                width: "29px",
+              }}
+            />
+            <Text
+              paddingLeft="10px"
+              fontSize="20px"
+              as="b"
+              textDecoration="none"
+            >
+              Trang chủ
+            </Text>
+          </Flex>
+        </ChakraLink>
 
-      {/* Theo Dõi */}
-      <ChakraLink
-        as={ReactRouterLink}
-        to="/following"
-        fontSize="20px"
-        fontWeight="bold"
-        style={{ textDecoration: "none" }}
-        w="240px"
-      >
-        <Flex
-          userSelect="none"
-          padding="12px"
-          transition="0.3s"
-          borderRadius="5px"
-          _hover={{
-            cursor: "pointer",
-            backgroundColor: "rgba(22, 24, 35, 0.03)",
-          }}
-          _active={{
-            backgroundColor: "rgba(22, 24, 35, 0.07)",
-          }}
-          color={isTabSelected("Following") ? "rgba(254, 44, 85, 1)" : "black"}
-          onClick={() => handleTabClick("Following")}
+        {/* Theo Dõi */}
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/following"
+          fontSize="20px"
+          fontWeight="bold"
+          style={{ textDecoration: "none" }}
         >
-          <SlUserFollowing
-            style={{
-              height: "29px",
-              width: "29px",
+          <Flex
+            userSelect="none"
+            padding="12px"
+            transition="0.3s"
+            borderRadius="5px"
+            _hover={{
+              cursor: "pointer",
+              backgroundColor: "rgba(22, 24, 35, 0.03)",
             }}
-          />
-          <Text paddingLeft="10px" fontSize="20px" as="b" textDecoration="none">
-            Theo dõi
-          </Text>
-        </Flex>
-      </ChakraLink>
+            _active={{
+              backgroundColor: "rgba(22, 24, 35, 0.07)",
+            }}
+            color={
+              isTabSelected("Following") ? "rgba(254, 44, 85, 1)" : "black"
+            }
+            onClick={() => handleTabClick("Following")}
+          >
+            <SlUserFollowing
+              style={{
+                height: "29px",
+                width: "29px",
+              }}
+            />
+            <Text
+              paddingLeft="10px"
+              fontSize="20px"
+              as="b"
+              textDecoration="none"
+            >
+              Theo dõi
+            </Text>
+          </Flex>
+        </ChakraLink>
 
-      {/* <ChakraLink
+        {/* <ChakraLink
         as={ReactRouterLink}
         to="/genre"
         fontSize="20px"
         fontWeight="bold"
         style={{ textDecoration: "none" }}
-        w="240px"
+        
       > */}
-      <Flex
-        userSelect="none"
-        padding="12px"
-        w="240px"
-        transition="0.3s"
-        borderRadius="5px"
-        _hover={{
-          cursor: "pointer",
-          backgroundColor: "rgba(22, 24, 35, 0.03)",
-        }}
-        _active={{
-          backgroundColor: "rgba(22, 24, 35, 0.07)",
-        }}
-        color={isTabSelected("Genre") ? "rgba(254, 44, 85, 1)" : "black"}
-        onClick={() => handleTabClick("Genre")}
-        // onClick={() => handleGenre()}
-      >
-        <IoBookOutline
-          style={{
-            height: "29px",
-            width: "29px",
+        <Flex
+          userSelect="none"
+          padding="12px"
+          transition="0.3s"
+          borderRadius="5px"
+          _hover={{
+            cursor: "pointer",
+            backgroundColor: "rgba(22, 24, 35, 0.03)",
           }}
-        />
-        <Text paddingLeft="10px" fontSize="20px" as="b">
-          Thể loại
-        </Text>
-      </Flex>
-      {/* </ChakraLink> */}
+          _active={{
+            backgroundColor: "rgba(22, 24, 35, 0.07)",
+          }}
+          color={isTabSelected("Genre") ? "rgba(254, 44, 85, 1)" : "black"}
+          onClick={() => handleTabClick("Genre")}
+          // onClick={() => handleGenre()}
+        >
+          <IoBookOutline
+            style={{
+              height: "29px",
+              width: "29px",
+            }}
+          />
+          <Text paddingLeft="10px" fontSize="20px" as="b">
+            Thể loại
+          </Text>
+        </Flex>
+        {/* </ChakraLink> */}
 
-      <Drawer onClose={onClose} isOpen={isOpen} size="xl">
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton color="#FE2C55" margin="6px 4px" size="20px" />
-          <DrawerHeader>
-            <Text userSelect="none" paddingLeft="8px" fontSize="25px">
-              Các thể loại truyện
-            </Text>
-          </DrawerHeader>
-          <DrawerBody>
-            <Flex
-              userSelect="none"
-              paddingLeft="10px"
-              flexWrap="wrap"
-              flexDirection="column"
-              height="700px"
-              rowGap="10px"
-              columnGap="30px"
-            >
-              {Genres.map((genre) => (
-                <Flex
-                  key={genre.id}
-                  height="28px"
-                  width="140px"
-                  justifyContent="flex-start"
-                >
-                  <Text
-                    fontSize="18px"
-                    color={genre.bold ? "#FE2C55" : "black"}
-                    as={genre.bold ? "b" : ""}
-                    cursor="pointer"
-                    transition="0.1s"
-                    _hover={{
-                      color: "#FE2C55",
-                      fontSize: "20px",
-                    }}
+        <Drawer onClose={onClose} isOpen={isOpen} size="xl">
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton color="#FE2C55" margin="6px 4px" size="20px" />
+            <DrawerHeader>
+              <Text userSelect="none" paddingLeft="8px" fontSize="25px">
+                Các thể loại truyện
+              </Text>
+            </DrawerHeader>
+            <DrawerBody>
+              <Flex
+                userSelect="none"
+                paddingLeft="10px"
+                flexWrap="wrap"
+                flexDirection="column"
+                height="700px"
+                rowGap="10px"
+                columnGap="30px"
+              >
+                {Genres.map((genre) => (
+                  <Flex
+                    key={genre.id}
+                    height="28px"
+                    width="140px"
+                    justifyContent="flex-start"
                   >
-                    {genre.genreName}
-                  </Text>
-                </Flex>
-              ))}
-            </Flex>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
+                    <Text
+                      fontSize="18px"
+                      color={genre.bold ? "#FE2C55" : "black"}
+                      as={genre.bold ? "b" : ""}
+                      cursor="pointer"
+                      transition="0.1s"
+                      _hover={{
+                        color: "#FE2C55",
+                        fontSize: "20px",
+                      }}
+                    >
+                      {genre.genreName}
+                    </Text>
+                  </Flex>
+                ))}
+              </Flex>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
 
-      {/* ============================================================================== */}
-      <ChakraLink
-        as={ReactRouterLink}
-        to="/history"
-        fontSize="20px"
-        fontWeight="bold"
-        style={{ textDecoration: "none" }}
-        w="240px"
-      >
-        <Flex
-          userSelect="none"
-          padding="12px"
-          w="240px"
-          transition="0.3s"
-          borderRadius="5px"
-          _hover={{
-            cursor: "pointer",
-            backgroundColor: "rgba(22, 24, 35, 0.03)",
-          }}
-          _active={{
-            backgroundColor: "rgba(22, 24, 35, 0.07)",
-          }}
-          color={isTabSelected("History") ? "rgba(254, 44, 85, 1)" : "black"}
-          onClick={() => handleTabClick("History")}
+        {/* ============================================================================== */}
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/history"
+          fontSize="20px"
+          fontWeight="bold"
+          style={{ textDecoration: "none" }}
         >
-          <MdOutlineHistory
-            style={{
-              height: "29px",
-              width: "29px",
+          <Flex
+            userSelect="none"
+            padding="12px"
+            transition="0.3s"
+            borderRadius="5px"
+            _hover={{
+              cursor: "pointer",
+              backgroundColor: "rgba(22, 24, 35, 0.03)",
             }}
-          />
-          <Text paddingLeft="10px" fontSize="20px" as="b">
-            Lịch sử
-          </Text>
-        </Flex>
-      </ChakraLink>
+            _active={{
+              backgroundColor: "rgba(22, 24, 35, 0.07)",
+            }}
+            color={isTabSelected("History") ? "rgba(254, 44, 85, 1)" : "black"}
+            onClick={() => handleTabClick("History")}
+          >
+            <MdOutlineHistory
+              style={{
+                height: "29px",
+                width: "29px",
+              }}
+            />
+            <Text paddingLeft="10px" fontSize="20px" as="b">
+              Lịch sử
+            </Text>
+          </Flex>
+        </ChakraLink>
 
-      <ChakraLink
-        as={ReactRouterLink}
-        to="/profile"
-        fontSize="20px"
-        fontWeight="bold"
-        style={{ textDecoration: "none" }}
-        w="240px"
-      >
-        <Flex
-          userSelect="none"
-          padding="12px"
-          w="240px"
-          transition="0.3s"
-          borderRadius="5px"
-          _hover={{
-            cursor: "pointer",
-            backgroundColor: "rgba(22, 24, 35, 0.03)",
-          }}
-          _active={{
-            backgroundColor: "rgba(22, 24, 35, 0.07)",
-          }}
-          color={isTabSelected("Profile") ? "rgba(254, 44, 85, 1)" : "black"}
-          onClick={() => handleTabClick("Profile")}
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/profile"
+          fontSize="20px"
+          fontWeight="bold"
+          style={{ textDecoration: "none" }}
         >
-          <IoPersonOutline
-            style={{
-              height: "29px",
-              width: "29px",
+          <Flex
+            userSelect="none"
+            padding="12px"
+            transition="0.3s"
+            borderRadius="5px"
+            _hover={{
+              cursor: "pointer",
+              backgroundColor: "rgba(22, 24, 35, 0.03)",
             }}
-          />
-          <Text paddingLeft="10px" fontSize="20px" as="b">
-            Hồ sơ
-          </Text>
-        </Flex>
-      </ChakraLink>
+            _active={{
+              backgroundColor: "rgba(22, 24, 35, 0.07)",
+            }}
+            color={isTabSelected("Profile") ? "rgba(254, 44, 85, 1)" : "black"}
+            onClick={() => handleTabClick("Profile")}
+          >
+            <IoPersonOutline
+              style={{
+                height: "29px",
+                width: "29px",
+              }}
+            />
+            <Text paddingLeft="10px" fontSize="20px" as="b">
+              Hồ sơ
+            </Text>
+          </Flex>
+        </ChakraLink>
+      </Flex>
     </Flex>
   );
 }

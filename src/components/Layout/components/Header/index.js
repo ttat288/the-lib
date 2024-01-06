@@ -96,7 +96,7 @@ function Header() {
       backgroundColor="#FDFDFD"
     >
       <Flex
-        w="1150px"
+        w="100vw"
         h="100%"
         alignItems="center"
         justifyContent="space-between"
