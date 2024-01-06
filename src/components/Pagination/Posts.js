@@ -10,7 +10,7 @@ function Posts({ posts, loading }) {
       flexWrap="wrap"
       justifyContent="center"
       rowGap="20px"
-      columnGap="20px"
+      columnGap="10px"
     >
       {posts.map((tester) => (
         <Flex
