@@ -47,7 +47,7 @@ function Home() {
     } else {
       setIsNext(false);
     }
-  }, [currentPage]);
+  }, [currentPage, totalPage]);
 
   //if last page can't click "next"
   const paginateNext = () => {
