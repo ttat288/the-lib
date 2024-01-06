@@ -102,7 +102,7 @@ function Header() {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Image src={images.logo} alt="TheLib" />
+        <Image paddingLeft="15px" src={images.logo} alt="TheLib" />
 
         <Popover autoFocus={false} isOpen={isInputFocused} placement="bottom">
           {/* PopoverTrigger: when you click it will be shown */}
@@ -198,7 +198,7 @@ function Header() {
             </PopoverContent>
           </Portal>
         </Popover>
-        <Flex>
+        <Flex paddingRight="20px">
           <Button
             backgroundColor="#FE2C55"
             width="100px"
