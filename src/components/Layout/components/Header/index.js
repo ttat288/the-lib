@@ -87,6 +87,7 @@ function Header() {
 
   return (
     <Flex
+      zIndex="2"
       w="100%"
       height="60px"
       justifyContent="center"

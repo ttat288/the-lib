@@ -1,16 +1,14 @@
 import { Flex } from "@chakra-ui/react";
+import History from "./components/History";
+import NewStories from "./components/NewStories";
+import RecommendedStories from "./components/RecommendedStories";
 
 function RightSidebar() {
   return (
-    <Flex width="400px" bg="pink">
-      <Flex
-        width="235px"
-        paddingTop="30px"
-        flexDirection="column"
-        overflowY="auto"
-        // maxHeight="100px"
-        position="fixed"
-      ></Flex>
+    <Flex paddingTop="45px" width="400px" flexDirection="column" rowGap="20px">
+      <History />
+      <NewStories />
+      <RecommendedStories />
     </Flex>
   );
 }
