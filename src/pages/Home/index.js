@@ -37,10 +37,14 @@ function Home() {
   useEffect(() => {
     if (currentPage === 1) {
       setIsPrevious(false);
-      setIsNext(true);
     }
+
     if (currentPage > 1) {
       setIsPrevious(true);
+    }
+    if (currentPage < totalPage) {
+      setIsNext(true);
+    } else {
       setIsNext(false);
     }
   }, [currentPage]);
