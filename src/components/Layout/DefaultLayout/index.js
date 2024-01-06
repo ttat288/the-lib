@@ -10,7 +10,7 @@ function DefaultLayout({ children }) {
     <Flex justifyContent="center" flexDirection="column" alignItems="center">
       <Header />
       {/* container */}
-      <Flex w="100vw" paddingTop="50px">
+      <Flex w="98.9vw" paddingTop="50px">
         <Sidebar />
         <Flex flex="1" paddingTop="40px">
           {children}

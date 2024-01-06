@@ -59,10 +59,9 @@ function Home() {
   };
 
   return (
-    <Flex justifyContent="center" w="100%">
+    <Flex w="90%" justifyContent="flex-end">
       <Flex flexDirection="column" maxWidth="950px">
         <Posts posts={currentPost} loading={loading} />
-
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={posts.length}

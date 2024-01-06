@@ -15,7 +15,6 @@ function Posts({ posts, loading }) {
       {posts.map((tester) => (
         <Flex
           userSelect="none"
-          padding="0px 10px"
           height="375px"
           width="220px"
           key={tester.id}
@@ -29,6 +28,7 @@ function Posts({ posts, loading }) {
             width="185px"
             flexDirection="column"
             _hover={{
+              cursor: "pointer",
               height: "370px",
               width: "190px",
               boxShadow:
@@ -39,7 +39,7 @@ function Posts({ posts, loading }) {
             justifyContent="space-between"
             border="1px solid #ccc"
           >
-            <Img width="90%" src={tester.imgComic} />
+            <Img borderRadius="10px" width="90%" src={tester.imgComic} />
             <Flex maxheight="98px" w="100%">
               <Text
                 fontSize="16px"
