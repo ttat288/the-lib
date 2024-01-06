@@ -8,6 +8,8 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(36);
+  const [isPrevious, setIsPrevious] = useState(true);
+  const [isNext, setIsNext] = useState(true);
   useEffect(() => {
     // setLoading(true);
     // fetch("https://jsonplaceholder.typicode.com/posts")
@@ -25,9 +27,32 @@ function Home() {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPost = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPage = Math.ceil(posts.length / postsPerPage);
 
   //change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  useEffect(() => {
+    if (currentPage === 1) {
+      setIsPrevious(false);
+      setIsNext(true);
+    }
+    if (currentPage > 1) {
+      setIsPrevious(true);
+      setIsNext(false);
+    }
+  }, [currentPage]);
+
+  //if last page can't click "next"
+  const paginateNext = () => {
+    if (totalPage > currentPage) setCurrentPage(currentPage + 1);
+  };
+  //if first page can't click "previous"
+  const paginatePrevious = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
 
   return (
     <Flex justifyContent="center" w="100%">
@@ -38,6 +63,10 @@ function Home() {
           postsPerPage={postsPerPage}
           totalPosts={posts.length}
           paginate={paginate}
+          paginateNext={paginateNext}
+          paginatePrevious={paginatePrevious}
+          isPrevious={isPrevious}
+          isNext={isNext}
         />
       </Flex>
     </Flex>
