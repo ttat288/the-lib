@@ -45,10 +45,10 @@ function Sidebar() {
       flexDirection="column"
       overflowY="auto"
       position="sticky"
-      top="100px"
+      top="78px"
       height="270px"
-      boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;"
-      borderRadius="15px"
+      boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;"
+      borderRadius="0px 15px 15px 0px"
     >
       <ChakraLink
         as={ReactRouterLink}

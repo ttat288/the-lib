@@ -1,5 +1,5 @@
 import { Flex, Img, Text } from "@chakra-ui/react";
-
+import { Link as ReactRouterLink } from "react-router-dom";
 function Posts({ posts, loading }) {
   if (loading) {
     return <h2>Loading...</h2>;
@@ -14,6 +14,10 @@ function Posts({ posts, loading }) {
     >
       {posts.map((tester) => (
         <Flex
+          as={ReactRouterLink}
+          to={{
+            pathname: `/detail/${tester.id}`,
+          }}
           userSelect="none"
           padding="0px 10px"
           height="375px"

@@ -7,6 +7,7 @@ import Profile from "../pages/Profile";
 import Genre from "../pages/Genre";
 import Search from "../pages/Search";
 import History from "../pages/History";
+import Detail from "../pages/Detail";
 
 // public Route
 const publicRoutes = [
@@ -16,6 +17,7 @@ const publicRoutes = [
   { path: "/genre", component: Genre },
   { path: "/search", component: Search },
   { path: "/history", component: History },
+  { path: "/detail/:id", component: Detail },
 ];
 
 //Login before
