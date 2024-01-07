@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Collapse,
+  Divider,
   Flex,
   Img,
   Text,
@@ -12,11 +13,21 @@ import { MdPerson } from "react-icons/md";
 import { TbFileDescription } from "react-icons/tb";
 import { FaTag } from "react-icons/fa";
 import { MdOutlineWifi } from "react-icons/md";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Detail() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // const { id } = useParams();
   const { isOpen, onToggle } = useDisclosure();
+
+  // show hide chapter list
+  const [isChapterListOpen, setChapterListOpen] = useState(false);
+  const toggleChapterList = () => {
+    setChapterListOpen(!isChapterListOpen);
+  };
 
   return (
     <Flex width="100%" justifyContent="center" padding="0px 20px">
@@ -131,34 +142,31 @@ function Detail() {
         <Flex width="80%" marginTop="100px" flexDirection="column">
           <Flex>
             <Flex w="100%">
-              <Text
-                paddingRight="2px"
+              <Button
                 marginBottom="10px"
-                cursor="pointer"
-                display="flex"
-                fontSize="20px"
-                userSelect="none"
                 onClick={onToggle}
-                borderRadius="2px"
-                border=" 1px solid silver"
-                transition="0.3s"
-                _hover={{
-                  bg: "#EAEAEA",
-                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",
-                }}
-                _active={{
-                  bg: "#D2D2D2",
-                }}
+                color="#fff"
+                height="40px"
+                bg="#FE2C55"
+                _hover={{ bg: "#EF2950" }}
+                _active={{ bg: "#D62848" }}
               >
-                <TbFileDescription
-                  style={{
-                    paddingRight: "4px",
-                    marginTop: "-1px",
-                    fontSize: "30px",
-                  }}
-                />
-                MÔ TẢ
-              </Text>
+                <Text
+                  fontSize="15px"
+                  display="flex"
+                  color="#fff"
+                  marginTop="4px"
+                >
+                  <TbFileDescription
+                    style={{
+                      paddingRight: "4px",
+                      marginTop: "-10px",
+                      fontSize: "30px",
+                    }}
+                  />
+                  MÔ TẢ
+                </Text>
+              </Button>
             </Flex>
           </Flex>
 
@@ -166,14 +174,14 @@ function Detail() {
 
           <Collapse in={isOpen} animateOpacity>
             <Box
-              p="40px"
+              p="10px"
               mt="4"
               color="#fff"
               bg="#FE2C55"
               rounded="md"
               shadow="md"
             >
-              <Text fontSize="20px">
+              <Text fontSize="15px">
                 Vu Xá Mục tiểu thư, một sát thủ hiện đại tinh thông kĩ thuật
                 dịch dung đặc hiệu! Ngoài ý muốn xuyên việt về thời cổ đại, trở
                 thành tam tiểu thư ngốc của tướng phủ. Đối diện với một bầy bạch
@@ -186,6 +194,177 @@ function Detail() {
           </Collapse>
         </Flex>
         {/* End Description */}
+
+        {/* Start Chapter list */}
+        <Flex width="80%" marginTop="10px" flexDirection="column">
+          <Flex>
+            <Flex w="100%">
+              <Button
+                marginBottom="10px"
+                onClick={toggleChapterList}
+                color="#fff"
+                height="40px"
+                bg="#FE2C55"
+                _hover={{ bg: "#EF2950" }}
+                _active={{ bg: "#D62848" }}
+              >
+                <Text
+                  fontSize="15px"
+                  display="flex"
+                  color="#fff"
+                  marginTop="4px"
+                >
+                  <TbFileDescription
+                    style={{
+                      paddingRight: "4px",
+                      marginTop: "-10px",
+                      fontSize: "30px",
+                    }}
+                  />
+                  Danh Sách Chương
+                </Text>
+              </Button>
+            </Flex>
+          </Flex>
+
+          <Box width="100%" height="1px" bg="red" />
+
+          <Collapse in={isChapterListOpen} animateOpacity>
+            <Flex
+              borderRadius="15px"
+              marginTop="10px"
+              border="2px solid silver"
+              flexDirection="column"
+              padding="10px"
+              rowGap="9px"
+            >
+              {/* Start Chapter */}
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              <Divider marginTop="-11px" />
+              <Text
+                paddingBottom="10px"
+                fontSize="15px"
+                _hover={{
+                  cursor: "pointer",
+                  color: "#FE2C55",
+                }}
+              >
+                chương 1
+              </Text>
+              {/* End Chapter */}
+            </Flex>
+          </Collapse>
+        </Flex>
+        {/* End Chapter list */}
       </Flex>
       {/* End Infomation of story */}
     </Flex>
