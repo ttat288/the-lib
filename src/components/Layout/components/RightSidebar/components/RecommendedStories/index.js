@@ -1,5 +1,6 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 import { RecommendedStoriesData } from "../../../../../../mooks/TestHome";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 function RecommendedStories() {
   return (
@@ -22,6 +23,10 @@ function RecommendedStories() {
       {RecommendedStoriesData.map((result) => (
         <Flex w="100%" height="100%" justifyContent="center">
           <Flex
+            as={ReactRouterLink}
+            to={{
+              pathname: `/detail/${result.id}`,
+            }}
             width="99%"
             height="99%"
             zIndex="1"
