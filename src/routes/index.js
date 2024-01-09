@@ -8,10 +8,12 @@ import Genre from "../pages/Genre";
 import Search from "../pages/Search";
 import History from "../pages/History";
 import Detail from "../pages/Detail";
+import GettingStarted from "../pages/GettingStarted";
 
 // public Route
 const publicRoutes = [
-  { path: "/", component: Home },
+  { path: "/", component: GettingStarted, layout: null },
+  { path: "/home", component: Home },
   { path: "/following", component: Following },
   { path: "/profile", component: Profile },
   { path: "/genre", component: Genre },

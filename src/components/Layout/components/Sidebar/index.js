@@ -52,7 +52,7 @@ function Sidebar() {
     >
       <ChakraLink
         as={ReactRouterLink}
-        to="/"
+        to="/home"
         fontSize="20px"
         fontWeight="bold"
         style={{ textDecoration: "none" }}
