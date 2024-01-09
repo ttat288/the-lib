@@ -1,9 +1,15 @@
-import { Alert, Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
 import { Link as ReactRouterLink } from "react-router-dom";
-import { IoIosAlert } from "react-icons/io";
+import swal from "sweetalert";
 
 function GettingStarted() {
+  swal({
+    title: "Thông báo !",
+    text: "Trang web vẫn đang trong quá trình phát triển! :)",
+    dangerMode: true,
+  });
+
   return (
     <Flex
       width="100%"
@@ -13,18 +19,6 @@ function GettingStarted() {
       justifyContent="center"
       flexDirection="column"
     >
-      <Flex w="100%" justifyContent="flex-end">
-        <Alert status="info" w="40%" height="100px" marginTop="-10px">
-          <IoIosAlert
-            style={{
-              fontSize: "52px",
-            }}
-          />
-          <Text fontSize="20px" marginLeft="10px">
-            TheLib vẫn đang trong quá trình phát triển
-          </Text>
-        </Alert>
-      </Flex>
       <Flex flexDirection="column" width="80%">
         <Typewriter
           options={{
