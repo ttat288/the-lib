@@ -30,7 +30,7 @@ function Detail() {
   };
 
   return (
-    <Flex width="100%" justifyContent="center" padding="0px 20px">
+    <Box width="100%" padding="0px 20px">
       {/* Start Infomation of story */}
       <Flex
         userSelect="none"
@@ -40,6 +40,7 @@ function Detail() {
         alignItems="center"
         w="100%"
         boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+        paddingBottom="80px"
       >
         {/* header */}
         <Text marginTop="10px" fontSize="21px">
@@ -367,7 +368,7 @@ function Detail() {
         {/* End Chapter list */}
       </Flex>
       {/* End Infomation of story */}
-    </Flex>
+    </Box>
   );
 }
 
