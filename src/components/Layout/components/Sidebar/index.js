@@ -18,10 +18,13 @@ import { IoPersonOutline } from "react-icons/io5";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { Genres } from "../../../../mooks/data.js";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
 
 function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedTab, setSelectedTab] = useState("Home");
+  const [hamburger, setHamburger] = useState(true);
 
   const handleTabClick = (tabName) => {
     setSelectedTab(tabName);
@@ -34,22 +37,51 @@ function Sidebar() {
     return tabName === selectedTab;
   };
 
+  const handleSidebar = () => {
+    setHamburger(!hamburger);
+  };
+
   // const handleGenre = () => {
   //   onOpen();
   // };
 
   return (
     <Flex
-      marginTop="15vw"
-      width="200px"
+      marginTop="15%"
+      width={hamburger ? "200px" : "50px"}
       flexDirection="column"
-      overflowY="auto"
+      overflowX="hidden"
+      overflowY="hidden"
       position="sticky"
       top="78px"
-      height="270px"
+      height="324px"
       boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;"
       borderRadius="0px 15px 15px 0px"
+      transition="0.4s"
     >
+      <Flex padding="17px">
+        {hamburger ? (
+          <Flex onClick={handleSidebar}>
+            <IoClose
+              style={{
+                userSelect: "none",
+                fontSize: "20px",
+                fontWeight: "bold",
+              }}
+            />
+          </Flex>
+        ) : (
+          <Flex onClick={handleSidebar}>
+            <GiHamburgerMenu
+              style={{
+                userSelect: "none",
+                fontSize: "20px",
+                fontWeight: "bold",
+              }}
+            />
+          </Flex>
+        )}
+      </Flex>
       <ChakraLink
         as={ReactRouterLink}
         to="/home"
@@ -71,16 +103,27 @@ function Sidebar() {
           }}
           color={isTabSelected("Home") ? "rgba(254, 44, 85, 1)" : "black"}
           onClick={() => handleTabClick("Home")}
+          whiteSpace="nowrap"
         >
           <AiFillHome
             style={{
-              height: "29px",
-              width: "29px",
+              mineHight: "30px",
+              minWidth: "30px",
+              height: "30px",
             }}
           />
-          <Text paddingLeft="10px" fontSize="20px" as="b" textDecoration="none">
-            Trang chủ
-          </Text>
+          {hamburger ? (
+            <Text
+              paddingLeft="10px"
+              fontSize="20px"
+              as="b"
+              textDecoration="none"
+            >
+              Trang chủ
+            </Text>
+          ) : (
+            ""
+          )}
         </Flex>
       </ChakraLink>
 
@@ -106,16 +149,27 @@ function Sidebar() {
           }}
           color={isTabSelected("Following") ? "rgba(254, 44, 85, 1)" : "black"}
           onClick={() => handleTabClick("Following")}
+          whiteSpace="nowrap"
         >
           <SlUserFollowing
             style={{
-              height: "29px",
-              width: "29px",
+              mineHight: "30px",
+              minWidth: "30px",
+              height: "30px",
             }}
           />
-          <Text paddingLeft="10px" fontSize="20px" as="b" textDecoration="none">
-            Theo dõi
-          </Text>
+          {hamburger ? (
+            <Text
+              paddingLeft="10px"
+              fontSize="20px"
+              as="b"
+              textDecoration="none"
+            >
+              Theo dõi
+            </Text>
+          ) : (
+            ""
+          )}
         </Flex>
       </ChakraLink>
 
@@ -142,16 +196,22 @@ function Sidebar() {
         color={isTabSelected("Genre") ? "rgba(254, 44, 85, 1)" : "black"}
         onClick={() => handleTabClick("Genre")}
         // onClick={() => handleGenre()}
+        whiteSpace="nowrap"
       >
         <IoBookOutline
           style={{
-            height: "29px",
-            width: "29px",
+            minHeight: "30px",
+            minWidth: "30px",
+            height: "30px",
           }}
         />
-        <Text paddingLeft="10px" fontSize="20px" as="b">
-          Thể loại
-        </Text>
+        {hamburger ? (
+          <Text paddingLeft="10px" fontSize="20px" as="b">
+            Thể loại
+          </Text>
+        ) : (
+          ""
+        )}
       </Flex>
       {/* </ChakraLink> */}
 
@@ -223,16 +283,22 @@ function Sidebar() {
           }}
           color={isTabSelected("History") ? "rgba(254, 44, 85, 1)" : "black"}
           onClick={() => handleTabClick("History")}
+          whiteSpace="nowrap"
         >
           <MdOutlineHistory
             style={{
-              height: "29px",
-              width: "29px",
+              mineHight: "30px",
+              minWidth: "30px",
+              height: "30px",
             }}
           />
-          <Text paddingLeft="10px" fontSize="20px" as="b">
-            Lịch sử
-          </Text>
+          {hamburger ? (
+            <Text paddingLeft="10px" fontSize="20px" as="b">
+              Lịch sử
+            </Text>
+          ) : (
+            ""
+          )}
         </Flex>
       </ChakraLink>
 
@@ -257,16 +323,22 @@ function Sidebar() {
           }}
           color={isTabSelected("Profile") ? "rgba(254, 44, 85, 1)" : "black"}
           onClick={() => handleTabClick("Profile")}
+          whiteSpace="nowrap"
         >
           <IoPersonOutline
             style={{
-              height: "29px",
-              width: "29px",
+              mineHight: "30px",
+              minWidth: "30px",
+              height: "30px",
             }}
           />
-          <Text paddingLeft="10px" fontSize="20px" as="b">
-            Hồ sơ
-          </Text>
+          {hamburger ? (
+            <Text paddingLeft="10px" fontSize="20px" as="b">
+              Hồ sơ
+            </Text>
+          ) : (
+            ""
+          )}
         </Flex>
       </ChakraLink>
     </Flex>

@@ -5,7 +5,7 @@ const clientId =
 
 function Login({ onLoginSuccess }) {
   const onSuccess = (res) => {
-    // console.log("LOGIN SUCCESS", res.profileObj);
+    console.log("LOGIN SUCCESS", res);
     onLoginSuccess(); // Gọi hàm callback
   };
 
