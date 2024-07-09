@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Drawer,
   DrawerBody,
@@ -47,13 +47,12 @@ function Sidebar() {
 
   return (
     <Flex
-      marginTop="15%"
-      width={hamburger ? "200px" : "50px"}
+      width={hamburger ? "200px" : "53px"}
       flexDirection="column"
       overflowX="hidden"
       overflowY="hidden"
       position="sticky"
-      top="78px"
+      top="80px"
       height="324px"
       boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;"
       borderRadius="0px 15px 15px 0px"
@@ -321,8 +320,8 @@ function Sidebar() {
           _active={{
             backgroundColor: "rgba(22, 24, 35, 0.07)",
           }}
-          color={isTabSelected("Profile") ? "rgba(254, 44, 85, 1)" : "black"}
-          onClick={() => handleTabClick("Profile")}
+          color={isTabSelected("profile") ? "rgba(254, 44, 85, 1)" : "black"}
+          onClick={() => handleTabClick("profile")}
           whiteSpace="nowrap"
         >
           <IoPersonOutline

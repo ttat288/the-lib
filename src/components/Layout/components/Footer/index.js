@@ -3,7 +3,7 @@ import { Flex, Img, Text } from "@chakra-ui/react";
 function Footer() {
   return (
     <Flex
-      w="99vw"
+      w="100%"
       height="200px"
       bg="#ccc"
       userSelect="none"

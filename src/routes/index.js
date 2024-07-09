@@ -1,5 +1,4 @@
 //Layout
-import { WithoutRightSidebar } from "../components/Layout";
 
 import Home from "../pages/Home";
 import Following from "../pages/Following";
@@ -15,7 +14,7 @@ const publicRoutes = [
   { path: "/", component: GettingStarted, layout: null },
   { path: "/home", component: Home },
   { path: "/following", component: Following },
-  { path: "/profile", component: Profile, layout: WithoutRightSidebar },
+  { path: "/profile", component: Profile },
   { path: "/genre", component: Genre },
   { path: "/search", component: Search },
   { path: "/history", component: History },

@@ -39,13 +39,17 @@ import { searchResult } from "../../../../mooks/data.js";
 import { gapi } from "gapi-script";
 import LoginButton from "../../../../components/services/google/login.js";
 import LogoutButton from "../../../../components/services/google/logout.js";
-const clientId =
-  "325518792405-623nupdf9l0phl5r63rpli0eboekr9hn.apps.googleusercontent.com";
+const clientId = process.env.KEY_GG;
 
 const cx = classNames.bind(styles);
 
 function Header() {
   const [isLogin, setIsLogin] = useState(false);
+  const [loadingHeader, setLoadingHeader] = useState(false);
+
+  const handleLoadingHeader = () => {
+    setLoadingHeader(!loadingHeader);
+  };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -63,6 +67,9 @@ function Header() {
   const [inputValue, setInputValue] = useState("");
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+  };
+  const handleDeleteTextSearch = () => {
+    setInputValue("");
   };
 
   const [isInputFocused, setIsInputFocused] = useState(false);
@@ -112,6 +119,7 @@ function Header() {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onChange={handleInputChange}
+                value={inputValue}
                 fontSize="1.6rem"
                 placeholder="Search comic"
                 bgColor="rgba(22,24,35,0.06)"
@@ -127,8 +135,14 @@ function Header() {
               />
 
               <InputRightElement height="100%" width="60px">
-                <IoMdCloseCircleOutline className={cx("close")} />
-                <AiOutlineLoading className={cx("loading")} />
+                <IoMdCloseCircleOutline
+                  className={cx("close")}
+                  onClick={handleDeleteTextSearch}
+                />
+                <AiOutlineLoading
+                  className={cx("loading")}
+                  style={{ display: loadingHeader ? "block" : "none" }}
+                />
 
                 <Box width="2px" height="30px" bg="rgba(22,24,35,0.1)" />
                 <Button
